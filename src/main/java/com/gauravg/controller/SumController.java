@@ -22,9 +22,15 @@ import com.gauravg.model.Model;
 @RestController
 public class SumController {
 	
+
+	private ReplyingKafkaTemplate<String, Model,Model> kafkaTemplate;
+
 	@Autowired
-	ReplyingKafkaTemplate<String, Model,Model> kafkaTemplate;
-	
+	public void setReplayingKAfkaTemplate(final ReplyingKafkaTemplate<String, Model, Model> kafkaTemplate) {
+		this.kafkaTemplate = kafkaTemplate;
+	}
+
+
 	@Value("${kafka.topic.request-topic}")
 	String requestTopic;
 	
@@ -35,7 +41,7 @@ public class SumController {
 	@PostMapping(value="/sum",produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public Model sum(@RequestBody Model request) throws InterruptedException, ExecutionException {
 		// create producer record
-		ProducerRecord<String, Model> record = new ProducerRecord<String, Model>(requestTopic, request);
+		ProducerRecord<String, Model> record = new ProducerRecord<>(requestTopic, request);
 		// set reply topic in header
 		record.headers().add(new RecordHeader(KafkaHeaders.REPLY_TOPIC, requestReplyTopic.getBytes()));
 		// post in kafka topic
