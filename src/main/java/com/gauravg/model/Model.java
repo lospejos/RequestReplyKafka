@@ -10,36 +10,39 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import static com.gauravg.Const.KEY_FIRST_NUMBER;
+import static com.gauravg.Const.KEY_SECOND_NUMBER;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-"firstNumber",
-"secondNumber"
+    KEY_FIRST_NUMBER,
+    KEY_SECOND_NUMBER
 })
 public class Model {
 
-@JsonProperty("firstNumber")
+@JsonProperty(KEY_FIRST_NUMBER)
 private int firstNumber;
-@JsonProperty("secondNumber")
+@JsonProperty(KEY_SECOND_NUMBER)
 private int secondNumber;
 @JsonIgnore
 private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-@JsonProperty("firstNumber")
+@JsonProperty(KEY_FIRST_NUMBER)
 public int getFirstNumber() {
 return firstNumber;
 }
 
-@JsonProperty("firstNumber")
+@JsonProperty(KEY_FIRST_NUMBER)
 public void setFirstNumber(int firstNumber) {
 this.firstNumber = firstNumber;
 }
 
-@JsonProperty("secondNumber")
+@JsonProperty(KEY_SECOND_NUMBER)
 public int getSecondNumber() {
 return secondNumber;
 }
 
-@JsonProperty("secondNumber")
+@JsonProperty(KEY_SECOND_NUMBER)
 public void setSecondNumber(int secondNumber) {
 this.secondNumber = secondNumber;
 }

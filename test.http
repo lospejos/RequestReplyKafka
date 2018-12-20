@@ -1,0 +1,12 @@
+GET http://localhost:8080/api/v1/sum
+#json/get?id={{id-value}}&key={{unresolved_var}}
+#Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+    "first_number": 3,
+    "second_number": 7
+}
+
+###
+

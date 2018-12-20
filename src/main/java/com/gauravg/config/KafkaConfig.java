@@ -41,7 +41,7 @@ public class KafkaConfig {
 	  @Bean
 	  public Map<String, Object> producerConfigs() {
 	    Map<String, Object> props = new HashMap<>();
-	    // list of host:port pairs used for establishing the initial connections to the Kakfa cluster
+	    // list of host:port pairs used for establishing the initial connections to the Kafka cluster
 	    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
 	        bootstrapServers);
 	    props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
@@ -54,7 +54,7 @@ public class KafkaConfig {
 	  public Map<String, Object> consumerConfigs() {
 	    Map<String, Object> props = new HashMap<>();
 	    props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,bootstrapServers);
-	    props.put(ConsumerConfig.GROUP_ID_CONFIG, "helloworld");
+	    props.put(ConsumerConfig.GROUP_ID_CONFIG, consumerGroup/*"helloworld"*/);
 	    return props;
 	  }
 

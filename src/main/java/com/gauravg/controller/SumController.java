@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gauravg.model.Model;
 
-@RestController
+@RestController//(value="/v1")
 public class SumController {
 	
 
 	private ReplyingKafkaTemplate<String, Model,Model> kafkaTemplate;
 
 	@Autowired
-	public void setReplayingKAfkaTemplate(final ReplyingKafkaTemplate<String, Model, Model> kafkaTemplate) {
+	public void setReplayingKafkaTemplate(final ReplyingKafkaTemplate<String, Model, Model> kafkaTemplate) {
 		this.kafkaTemplate = kafkaTemplate;
 	}
 
